@@ -7,4 +7,5 @@ export default NavigationConstants = {
   QS: 'QS',
   MS: 'MS',
   OLEVEL_YEARLY: 'olevel-yearly',
+  YEARLY_PDF: `pdf`,
 };

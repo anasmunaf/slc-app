@@ -4,19 +4,20 @@ import {
   ScrollView,
   Text,
   StyleSheet,
+  Dimensions,
   TouchableOpacity,
 } from 'react-native';
+import NavigationConstants from '../../constants/NavigationConstants';
 import OYearlyData from '../../utils/Api/O-Yearly-Api';
 
-const YearlyPapers = ({route}) => {
-  async function fetchData() {
-    setPapers(await OYearlyData());
-  }
+const YearlyPapers = ({navigation}) => {
   const [papers, setPapers] = useState();
   useEffect(() => {
-    fetchData();
+    OYearlyData().then(data => {
+      setPapers(data);
+    });
   }, []);
-  console.log(papers);
+
   const styles = StyleSheet.create({
     btn: {
       margin: 15,
@@ -41,13 +42,20 @@ const YearlyPapers = ({route}) => {
       flexDirection: 'row',
     },
   });
+
   return (
     <>
       <View>
         <ScrollView style={styles.list}>
-          {papers?.map(paper => {
+          {papers?.map((paper, index) => {
             return (
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate(NavigationConstants.YEARLY_PDF, {
+                    url: `data:application/pdf;base64,${paper?.pdf.buffer}`,
+                  })
+                }
+                key={index}>
                 <View style={styles.btn}>
                   <View>
                     <Text style={styles.txt}>

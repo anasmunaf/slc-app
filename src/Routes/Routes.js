@@ -5,6 +5,7 @@ import TabRoute from './TabRoute';
 import NavigationConstant from '../constants/NavigationConstants';
 import Subjects from '../Screens/ByAnnual/Subjects';
 import PaperCategoryTab from './PaperCategoryTab';
+import YearlyPdf from '../components/YearlyPdf';
 const Stack = createNativeStackNavigator();
 
 const Routes = () => {
@@ -26,6 +27,13 @@ const Routes = () => {
         <Stack.Screen
           name={NavigationConstant.OLEVEL_YEARLY}
           component={PaperCategoryTab}
+          options={{
+            title: ``,
+          }}
+        />
+        <Stack.Screen
+          name={NavigationConstant.YEARLY_PDF}
+          component={YearlyPdf}
           options={{
             title: ``,
           }}

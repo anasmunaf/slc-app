@@ -7,7 +7,6 @@ import YearlyPapers from '../Screens/ByAnnual/YearlyPapers';
 const Tab = createBottomTabNavigator();
 
 const PaperCategoryTab = ({route}) => {
-  console.log(route);
   const styles = StyleSheet.create({});
 
   return (

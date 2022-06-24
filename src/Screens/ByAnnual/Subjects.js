@@ -32,14 +32,15 @@ const Subjects = ({navigation}) => {
       <View>
         <Text style={styles.label}>O'Level</Text>
         <ScrollView>
-          {subjects.map(subject => {
+          {subjects.map((subject, index) => {
             return (
               <TouchableOpacity
                 onPress={() =>
                   navigation.navigate(NavigationConstants.OLEVEL_YEARLY, {
                     title: subject,
                   })
-                }>
+                }
+                key={index}>
                 <Text key={subject} style={styles.btn}>
                   {subject}
                 </Text>

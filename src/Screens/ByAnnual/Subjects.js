@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import NavigationConstants from '../../constants/NavigationConstants';
 import {subjects} from '../../constants/OlevelSubjects';
 const Subjects = ({navigation}) => {
@@ -29,26 +30,28 @@ const Subjects = ({navigation}) => {
   });
   return (
     <>
-      <View>
-        <Text style={styles.label}>O'Level</Text>
-        <ScrollView>
-          {subjects.map((subject, index) => {
-            return (
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate(NavigationConstants.OLEVEL_YEARLY, {
-                    title: subject,
-                  })
-                }
-                key={index}>
-                <Text key={subject} style={styles.btn}>
-                  {subject}
-                </Text>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
-      </View>
+      <SafeAreaView>
+        <View>
+          <Text style={styles.label}>O'Level</Text>
+          <ScrollView>
+            {subjects.map((subject, index) => {
+              return (
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate(NavigationConstants.OLEVEL_YEARLY, {
+                      title: subject,
+                    })
+                  }
+                  key={index}>
+                  <Text key={subject} style={styles.btn}>
+                    {subject}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
+          </ScrollView>
+        </View>
+      </SafeAreaView>
     </>
   );
 };

@@ -1,5 +1,15 @@
 import * as React from 'react';
-import {View, Text, TouchableOpacity, Alert, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Alert,
+  StyleSheet,
+  SafeAreaView,
+  Platform,
+  StatusBar,
+  Dimensions,
+} from 'react-native';
 import NavigationConstants from '../../constants/NavigationConstants';
 
 const Papers = ({navigation}) => {
@@ -39,6 +49,7 @@ const Papers = ({navigation}) => {
   });
   return (
     <View style={styles.container}>
+      <StatusBar hidden={true} />
       <View style={{marginTop: 100}}>
         <Text style={styles.label}>A'Level</Text>
         <View style={styles.col}>

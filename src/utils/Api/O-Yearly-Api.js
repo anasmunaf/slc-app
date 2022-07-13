@@ -5,4 +5,11 @@ async function OYearlyData() {
   return data.data;
 }
 
-export default OYearlyData;
+async function OYearlyPdf(id) {
+  const data = await axios.get(
+    `https://slc-backend.herokuapp.com/api/yearly/pdf/${id}`,
+  );
+  return data?.data;
+}
+
+export {OYearlyData, OYearlyPdf};

@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import NavigationConstants from '../../constants/NavigationConstants';
-import OYearlyData from '../../utils/Api/O-Yearly-Api';
+import {OYearlyData} from '../../utils/Api/O-Yearly-Api';
 
 const YearlyPapers = ({navigation}) => {
   const [papers, setPapers] = useState();
@@ -52,7 +52,7 @@ const YearlyPapers = ({navigation}) => {
               <TouchableOpacity
                 onPress={() =>
                   navigation.navigate(NavigationConstants.YEARLY_PDF, {
-                    url: `data:application/pdf;base64,${paper?.pdf.buffer}`,
+                    id: paper._id,
                   })
                 }
                 key={index}>

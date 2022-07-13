@@ -49,7 +49,11 @@ const Papers = ({navigation}) => {
   });
   return (
     <View style={styles.container}>
-      <StatusBar hidden={true} />
+      <StatusBar
+        translucent={true}
+        backgroundColor="transparent"
+        barStyle={'dark-content'}
+      />
       <View style={{marginTop: 100}}>
         <Text style={styles.label}>A'Level</Text>
         <View style={styles.col}>

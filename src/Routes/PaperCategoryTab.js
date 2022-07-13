@@ -3,7 +3,8 @@ import {StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import NavigationConstant from '../constants/NavigationConstants';
 import YearlyPapers from '../Screens/ByAnnual/YearlyPapers';
-
+import QuestionPaper from '../Screens/ByAnnual/QuestionPaper';
+import MarkingScheme from '../Screens/ByAnnual/MarkingScheme';
 const Tab = createBottomTabNavigator();
 
 const PaperCategoryTab = ({route}) => {
@@ -29,8 +30,8 @@ const PaperCategoryTab = ({route}) => {
         },
       }}>
       <Tab.Screen name={NavigationConstant.ALL} component={YearlyPapers} />
-      <Tab.Screen name={NavigationConstant.QS} component={YearlyPapers} />
-      <Tab.Screen name={NavigationConstant.MS} component={YearlyPapers} />
+      <Tab.Screen name={NavigationConstant.QS} component={QuestionPaper} />
+      <Tab.Screen name={NavigationConstant.MS} component={MarkingScheme} />
     </Tab.Navigator>
   );
 };

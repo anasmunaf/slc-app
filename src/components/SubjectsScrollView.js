@@ -2,9 +2,8 @@ import React from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import NavigationConstants from '../../constants/NavigationConstants';
-import {subjects} from '../../constants/OlevelSubjects';
-const Subjects = ({navigation}) => {
+
+const SubjectsScrollView = ({navigation, subjects, subjects}) => {
   const styles = StyleSheet.create({
     btn: {
       fontSize: 24,
@@ -38,7 +37,7 @@ const Subjects = ({navigation}) => {
               return (
                 <TouchableOpacity
                   onPress={() =>
-                    navigation.navigate(NavigationConstants.OLEVEL_YEARLY, {
+                    navigation.navigate(navigationName, {
                       title: subject,
                     })
                   }
@@ -56,4 +55,4 @@ const Subjects = ({navigation}) => {
   );
 };
 
-export default Subjects;
+export default SubjectsScrollView;

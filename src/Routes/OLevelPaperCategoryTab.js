@@ -1,18 +1,16 @@
 import * as React from 'react';
-import {StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import NavigationConstant from '../constants/NavigationConstants';
-import YearlyPapers from '../Screens/ByAnnual/YearlyPapers';
-import QuestionPaper from '../Screens/ByAnnual/QuestionPaper';
-import MarkingScheme from '../Screens/ByAnnual/MarkingScheme';
+import {
+  MarkingScheme,
+  QuestionPaper,
+  YearlyPapers,
+} from '../Screens/ByAnnual/O_level';
 const Tab = createBottomTabNavigator();
-
-const PaperCategoryTab = ({route}) => {
-  const styles = StyleSheet.create({});
-
+const OLevelPaperCategoryTab = () => {
   return (
     <Tab.Navigator
-      initialRouteName={NavigationConstant.PAPERS}
+      initialRouteName={NavigationConstant.ALL}
       screenOptions={{
         tabBarStyle: {
           position: 'absolute',
@@ -29,11 +27,20 @@ const PaperCategoryTab = ({route}) => {
           marginBottom: 15,
         },
       }}>
-      <Tab.Screen name={NavigationConstant.ALL} component={YearlyPapers} />
-      <Tab.Screen name={NavigationConstant.QS} component={QuestionPaper} />
-      <Tab.Screen name={NavigationConstant.MS} component={MarkingScheme} />
+      <Tab.Screen
+        name={NavigationConstant.O_LEVEL.ALL}
+        component={YearlyPapers}
+      />
+      <Tab.Screen
+        name={NavigationConstant.O_LEVEL.QS}
+        component={QuestionPaper}
+      />
+      <Tab.Screen
+        name={NavigationConstant.O_LEVEL.MS}
+        component={MarkingScheme}
+      />
     </Tab.Navigator>
   );
 };
 
-export default PaperCategoryTab;
+export default OLevelPaperCategoryTab;

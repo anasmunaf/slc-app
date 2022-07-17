@@ -59,7 +59,7 @@ const Papers = ({navigation}) => {
         <View style={styles.col}>
           <TouchableOpacity
             onPress={() =>
-              navigation.navigate(NavigationConstants.OLEVEL_SUBJECTS)
+              navigation.navigate(NavigationConstants.A_LEVEL.SUBJECT)
             }>
             <Text style={[styles.pp_btn, styles.pp_btn_bg_clr_blue]}>
               Yearly
@@ -81,7 +81,7 @@ const Papers = ({navigation}) => {
         <View style={styles.col}>
           <TouchableOpacity
             onPress={() =>
-              navigation.navigate(NavigationConstants.OLEVEL_SUBJECTS)
+              navigation.navigate(NavigationConstants.O_LEVEL.SUBJECT)
             }>
             <Text style={[styles.pp_btn, styles.pp_btn_bg_clr_blue]}>
               Yearly

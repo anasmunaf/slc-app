@@ -90,7 +90,7 @@ const Papers = ({navigation}) => {
 
           <TouchableOpacity
             onPress={() =>
-              Alert.alert('TouchableOpacity with adjusted color pressed')
+              navigation.navigate(NavigationConstants.O_LEVEL.SUBJECT)
             }>
             <Text style={[styles.pp_btn, styles.pp_btn_bg_clr_grn]}>
               Topical

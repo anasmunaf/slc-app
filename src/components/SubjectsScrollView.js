@@ -2,8 +2,9 @@ import React from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import NavigationConstants from '../constants/NavigationConstants';
 
-const SubjectsScrollView = ({navigation, subjects, subjects}) => {
+const SubjectsScrollView = ({navigation, subjects, navigationName, label}) => {
   const styles = StyleSheet.create({
     btn: {
       fontSize: 24,
@@ -29,28 +30,26 @@ const SubjectsScrollView = ({navigation, subjects, subjects}) => {
   });
   return (
     <>
-      <SafeAreaView>
-        <View>
-          <Text style={styles.label}>O'Level</Text>
-          <ScrollView>
-            {subjects.map((subject, index) => {
-              return (
-                <TouchableOpacity
-                  onPress={() =>
-                    navigation.navigate(navigationName, {
-                      title: subject,
-                    })
-                  }
-                  key={index}>
-                  <Text key={subject} style={styles.btn}>
-                    {subject}
-                  </Text>
-                </TouchableOpacity>
-              );
-            })}
-          </ScrollView>
-        </View>
-      </SafeAreaView>
+      <View>
+        <Text style={styles.label}>{label}</Text>
+        <ScrollView>
+          {subjects.map((subject, index) => {
+            return (
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate(navigationName, {
+                    title: subject,
+                  })
+                }
+                key={index}>
+                <Text key={subject} style={styles.btn}>
+                  {subject}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </ScrollView>
+      </View>
     </>
   );
 };

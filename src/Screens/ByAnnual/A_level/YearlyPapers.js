@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import PaperScrollView from '../../../components/PaperScrollView';
 import {OYearlyData} from '../../../utils/Api/O-Yearly-Api';
 
-const YearlyPapers = ({navigation}) => {
+const YearlyPapers = props => {
   const [papers, setPapers] = useState();
   useEffect(() => {
     OYearlyData().then(data => {
@@ -10,7 +10,7 @@ const YearlyPapers = ({navigation}) => {
     });
   }, []);
 
-  return <PaperScrollView papers={papers} />;
+  return <PaperScrollView papers={papers} {...props} />;
 };
 
 export default YearlyPapers;

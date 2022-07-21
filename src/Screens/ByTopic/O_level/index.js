@@ -1,3 +1,3 @@
 import Subjects from './Subjects';
-
-export {Subjects};
+import TopicFilter from './TopicFilter';
+export {Subjects, TopicFilter};

@@ -1,11 +1,20 @@
 import React from 'react';
-import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import NavigationConstants from '../constants/NavigationConstants';
-
+import AppStyle from '../styles/AppStyle';
 const SubjectsScrollView = ({navigation, subjects, navigationName, label}) => {
   const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      display: 'flex',
+      flexDirection: 'column',
+    },
     btn: {
       fontSize: 24,
       color: 'white',
@@ -16,39 +25,48 @@ const SubjectsScrollView = ({navigation, subjects, navigationName, label}) => {
       paddingVertical: 2,
     },
     label: {
-      fontSize: 50,
+      fontSize: 100,
       color: '#8c8c8c',
       margin: 15,
-      backgroundColor: '#f2f7f7',
       borderRadius: 4,
       textAlign: 'center',
       paddingVertical: 20,
-      elevation: 3,
-      marginTop: 70,
-      marginBottom: 100,
+    },
+    labelContainer: {
+      flex: 2,
+      justifyContent: 'center',
+    },
+    scroller: {
+      flex: 2,
+      maxHeight: Dimensions.get('screen').height / 2,
+      marginBottom: 20,
     },
   });
   return (
     <>
-      <View>
-        <Text style={styles.label}>{label}</Text>
-        <ScrollView>
-          {subjects.map((subject, index) => {
-            return (
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate(navigationName, {
-                    title: subject,
-                  })
-                }
-                key={index}>
-                <Text key={subject} style={styles.btn}>
-                  {subject}
-                </Text>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
+      <View style={[styles.container, AppStyle.appScreen]}>
+        <View style={styles.labelContainer}>
+          <Text style={styles.label}>{label}</Text>
+        </View>
+        <View style={styles.scroller}>
+          <ScrollView>
+            {subjects.map((subject, index) => {
+              return (
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate(navigationName, {
+                      subject: subject,
+                    })
+                  }
+                  key={index}>
+                  <Text key={subject} style={styles.btn}>
+                    {subject}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
+          </ScrollView>
+        </View>
       </View>
     </>
   );

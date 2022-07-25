@@ -11,7 +11,7 @@ import {
   Dimensions,
 } from 'react-native';
 import NavigationConstants from '../../constants/NavigationConstants';
-
+import AppStyle from '../../styles/AppStyle';
 const Papers = ({navigation}) => {
   const styles = StyleSheet.create({
     container: {
@@ -48,7 +48,7 @@ const Papers = ({navigation}) => {
     },
   });
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, AppStyle.appScreen]}>
       <StatusBar
         translucent={true}
         backgroundColor="transparent"
@@ -90,7 +90,7 @@ const Papers = ({navigation}) => {
 
           <TouchableOpacity
             onPress={() =>
-              navigation.navigate(NavigationConstants.O_LEVEL.SUBJECT)
+              navigation.navigate(NavigationConstants.O_LEVEL.SUBJECT_TOPICAL)
             }>
             <Text style={[styles.pp_btn, styles.pp_btn_bg_clr_grn]}>
               Topical

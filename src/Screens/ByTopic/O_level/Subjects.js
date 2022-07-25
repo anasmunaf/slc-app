@@ -8,7 +8,7 @@ const Subjects = props => {
     <SubjectsScrollView
       label={"O' level"}
       subjects={subjects}
-      navigationName={NavigationConstants.O_LEVEL.YEARLY_TAB}
+      navigationName={NavigationConstants.O_LEVEL.TOPIC_FILTER}
       {...props}
     />
   );

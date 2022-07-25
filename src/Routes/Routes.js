@@ -8,13 +8,19 @@ import YearlyPdf from '../components/YearlyPdf';
 import {Subjects as OLevelSubjects} from '../Screens/ByAnnual/O_level';
 import {Subjects as ALevelSubjects} from '../Screens/ByAnnual/A_level';
 import ALevelPaperCategoryTab from './ALevelPaperCategoryTab';
-import {TopicFilter} from '../Screens/ByTopic/O_level';
+import {
+  Subjects as OLevelSubjective,
+  TopicFilter,
+} from '../Screens/ByTopic/O_level';
 const Stack = createNativeStackNavigator();
 
-const Routes = () => {
+const Routes = props => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerTransparent: true,
+        }}>
         <Stack.Screen
           options={{headerShown: false}}
           name={NavigationConstant.TAB}
@@ -56,8 +62,15 @@ const Routes = () => {
           }}
         />
         <Stack.Screen
+          name={NavigationConstant.O_LEVEL.SUBJECT_TOPICAL}
+          component={OLevelSubjective}
+          options={{
+            title: ``,
+          }}
+        />
+        <Stack.Screen
           name={NavigationConstant.O_LEVEL.TOPIC_FILTER}
-          component={TopicFilter}
+          children={props => <TopicFilter {...props} />}
           options={{
             title: ``,
           }}

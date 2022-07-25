@@ -7,17 +7,17 @@ import {
   YearlyPapers,
 } from '../Screens/ByAnnual/O_level';
 const Tab = createBottomTabNavigator();
-const OLevelPaperCategoryTab = () => {
+const OLevelPaperCategoryTab = props => {
   return (
     <Tab.Navigator
       initialRouteName={NavigationConstant.ALL}
       screenOptions={{
         tabBarStyle: {
           position: 'absolute',
-          top: 25,
+          top: 100,
           left: 20,
           right: 20,
-          elevation: 2,
+          elevation: 4,
           borderRadius: 15,
         },
         headerShown: false,
@@ -29,15 +29,15 @@ const OLevelPaperCategoryTab = () => {
       }}>
       <Tab.Screen
         name={NavigationConstant.O_LEVEL.ALL}
-        component={YearlyPapers}
+        children={() => <YearlyPapers {...props} />}
       />
       <Tab.Screen
         name={NavigationConstant.O_LEVEL.QS}
-        component={QuestionPaper}
+        children={() => <QuestionPaper {...props} />}
       />
       <Tab.Screen
         name={NavigationConstant.O_LEVEL.MS}
-        component={MarkingScheme}
+        children={() => <MarkingScheme {...props} />}
       />
     </Tab.Navigator>
   );

@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import RangeModal from '../../../components/RangeModal';
 import TopicScrollView from '../../../components/TopicScrollView';
+import NavigationConstants from '../../../constants/NavigationConstants';
 import AppStyle from '../../../styles/AppStyle';
 
 const styles = StyleSheet.create({
@@ -104,7 +105,10 @@ const TopicFilter = ({navigation, route}) => {
           />
         </View>
         <View style={styles.generateBtnView}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate(NavigationConstants.CUSTOM_PAPERS)
+            }>
             <Text style={[styles.generateBtn, AppStyle.tabBar]}>
               Generate Paper
             </Text>

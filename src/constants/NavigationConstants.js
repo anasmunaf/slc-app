@@ -21,4 +21,5 @@ export default NavigationConstants = {
   FORUM: 'Forum',
   TAB: 'Tab',
   YEARLY_PDF: `pdf`,
+  CUSTOM_PAPERS: 'custom-papers',
 };

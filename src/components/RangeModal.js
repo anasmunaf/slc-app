@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Button,
   Dimensions,
@@ -9,6 +9,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import CheckBox from '@react-native-community/checkbox';
+
 const styles = StyleSheet.create({
   modal: {
     backgroundColor: 'rgba(0,0,0,0.5)',
@@ -41,8 +43,27 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
   },
+  checkboxText: {
+    fontSize: 20,
+    color: 'white',
+  },
+  inputLabel: {
+    color: 'white',
+    fontSize: 20,
+  },
+  checkboxView: {
+    flex: 0,
+    flexDirection: 'row',
+    textAlign: 'left',
+    width: '100%',
+  },
+  checkbox: {
+    color: 'white',
+  },
 });
 const RangeModal = ({isVisible, onClose}) => {
+  const [toggleOneCheckBox, setToggleOneCheckBox] = useState(false);
+  const [toggleTwoCheckBox, setToggleTwoCheckBox] = useState(false);
   return (
     <Modal visible={isVisible} transparent={true} animationType={'fade'}>
       <View style={styles.modal}>
@@ -60,12 +81,28 @@ const RangeModal = ({isVisible, onClose}) => {
               style={styles.input}
               placeholder="Year"
             />
-            <Text style={{color: 'white', fontSize: 20}}>To</Text>
+            <Text style={styles.inputLabel}>To</Text>
             <TextInput
               keyboardType="numeric"
               style={styles.input}
               placeholder="Year"
             />
+          </View>
+          <View style={styles.checkboxView}>
+            <CheckBox
+              disabled={false}
+              value={toggleOneCheckBox}
+              onValueChange={newValue => setToggleOneCheckBox(newValue)}
+            />
+            <Text style={styles.checkboxText}>P1</Text>
+          </View>
+          <View style={styles.checkboxView}>
+            <CheckBox
+              disabled={false}
+              value={toggleTwoCheckBox}
+              onValueChange={newValue => setToggleTwoCheckBox(newValue)}
+            />
+            <Text style={styles.checkboxText}>P2</Text>
           </View>
           <TouchableOpacity onPress={onClose}>
             <Text style={styles.submit}>Done</Text>

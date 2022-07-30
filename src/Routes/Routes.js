@@ -12,6 +12,8 @@ import {
   Subjects as OLevelSubjective,
   TopicFilter,
 } from '../Screens/ByTopic/O_level';
+import CustomPapers from '../components/CustomPapers';
+import TopicalPaper from '../Screens/ByTopic/O_level/TopicalPaper';
 const Stack = createNativeStackNavigator();
 
 const Routes = props => {
@@ -71,6 +73,13 @@ const Routes = props => {
         <Stack.Screen
           name={NavigationConstant.O_LEVEL.TOPIC_FILTER}
           children={props => <TopicFilter {...props} />}
+          options={{
+            title: ``,
+          }}
+        />
+        <Stack.Screen
+          name={NavigationConstant.CUSTOM_PAPERS}
+          children={props => <TopicalPaper {...props} />}
           options={{
             title: ``,
           }}
